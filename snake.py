@@ -33,7 +33,7 @@ def main(scr):
         title = ' Snake '
         win.addstr(0, (curses.COLS - len(title)) // 2, title)
         score = 0
-        win.addstr(0, 1, "Score: " + str(score))
+        win.addstr(0, 1, "Score: " + str(-3+len(start_output[0])))
 
         win.addch(food[0], food[1], "*")
         if start_output[0][0] == food[0] and start_output[1][0] == food[1]:
