@@ -42,10 +42,7 @@ def main(scr):
             start_output[1].insert(1, start_output[1][0])
             score += 1
 
-        if start_output[0][0] or start_output[1][0] == win.border():
-            win.addstr(7,8, "df")
-
-
+    
         if key == KEY_RIGHT:
             start_output[2]="right"
             turn = len(start_output[0])
