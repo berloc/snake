@@ -32,13 +32,18 @@ def main(scr):
         win.nodelay(1)
         title = ' Snake '
         win.addstr(0, (curses.COLS - len(title)) // 2, title)
+        score = 0
+        win.addstr(0, 1, "Score: " + str(score))
 
         win.addch(food[0], food[1], "*")
         if start_output[0][0] == food[0] and start_output[1][0] == food[1]:
-            win.addstr(5,6, "hamm")
             food = [randint(5,20),randint(5,75)]
             start_output[0].insert(0, start_output[0][0])
             start_output[1].insert(1, start_output[1][0])
+            score += 1
+
+        if start_output[0][0] or start_output[1][0] == win.border():
+            win.addstr(7,8, "df")
 
 
         if key == KEY_RIGHT:
@@ -61,7 +66,6 @@ def main(scr):
                 start_output[0].insert(0,start_output[0][0]-1)
                 start_output[1].insert(0, start_output[1][0])
                 turn -=1
-
 
             if start_output[2] == "right":
                 start_output[0].pop()
